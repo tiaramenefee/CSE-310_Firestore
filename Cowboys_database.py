@@ -1,3 +1,5 @@
+#Step 1-Connections and grabbing data
+
 import firebase_admin
 from firebase_admin import credentials, firestore
 
@@ -50,6 +52,8 @@ def run_data_migration():
     pickens_stats_df = get_sql_data('PickensStats') 
     SQL_CONN.close()
 
+    #Step 2- Data Migration
+
     def load_players():
         batch = db.batch()
         players_ref = db.collection('players')
@@ -96,7 +100,7 @@ def run_data_migration():
     load_games()
     load_player_stats()
 
-
+# Step 3 : Crud Management
 
 def create_data():
     
